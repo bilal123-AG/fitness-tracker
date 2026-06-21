@@ -1,0 +1,6 @@
+{
+  "name": "fitness-tracker",
+  "scripts": {
+    "start": "cd server && npm start"
+  }
+}

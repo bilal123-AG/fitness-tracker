@@ -126,6 +126,7 @@ function switchTab(tab) {
   if (tab==="timer") renderTimer();
   if (tab==="music") renderMusic();
   if (tab==="data") renderData();
+  if (tab==="training") renderTraining();
 }
 
 // ====== 登录 ======

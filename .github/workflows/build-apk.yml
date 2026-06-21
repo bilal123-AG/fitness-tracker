@@ -15,23 +15,16 @@ jobs:
         with: 
           java-version: "17" 
           distribution: "temurin" 
-      - name: Setup Android SDK 
-        uses: android-actions/setup-android@v3 
-      - name: Setup Node.js 
-        uses: actions/setup-node@v4 
-        with: 
-          node-version: "22" 
-      - name: Install Bubblewrap 
-        run: npm install -g @bubblewrap/cli 
-      - name: Initialize TWA 
-        run: | 
-          echo -e "Y\nY"| bubblewrap init \
-            --manifest=https://fitness-tracker-production-dd75.up.railway.app/manifest.json \
-            --directory=./twa 
+      - name: Generate debug keystore 
+        run: |
+          keytool -genkeypair -v -keystore debug.keystore -alias android -Keyalg RSA -Keysize 2048 -validity 10000 -storepass android -keypass android -dname "CN=Dev, OU=Dev, O=Dev, L=City, S=State, C=US"
       - name: Build APK 
-        run: cd twa && ./gradlew assembleRelease 
+        run: | 
+          cp -r android/* .
+          chmod +x gradlew
+          ./gradlew assembleDebug
       - name: Upload APK 
         uses: actions/upload-artifact@v4 
         with: 
           name: fitness-tracker-apk 
-          path: twa/app/build/outputs/apk/release/*.apk
+          path: app/build/outputs/apk/debug/*.apk

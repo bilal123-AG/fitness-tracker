@@ -1,0 +1,9 @@
+[service]
+name = "fitness-tracker"
+
+[build]
+builder = "nixpacks"
+buildCommand = "cd server && npm install"
+
+[deploy]
+startCommand = "cd server && npm start"

@@ -25,9 +25,9 @@ jobs:
         run: npm install -g @bubblewrap/cli 
       - name: Initialize TWA 
         run: | 
-          bubblewrap init --manifest=https://fitness-tracker-production-dd75.up.railway.app/manifest.json \
-            --directory=./twa \
-            --skip-signing-key-creation 
+          echo -e "Y\nY"| bubblewrap init \
+            --manifest=https://fitness-tracker-production-dd75.up.railway.app/manifest.json \
+            --directory=./twa 
       - name: Build APK 
         run: cd twa && ./gradlew assembleRelease 
       - name: Upload APK 

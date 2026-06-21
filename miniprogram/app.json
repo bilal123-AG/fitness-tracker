@@ -1,0 +1,21 @@
+{
+  "pages": [ "pages/login/index", "pages/index/index", "pages/training/index", "pages/data/index", "pages/plans/index", "pages/movements/index" ],
+  "window": {
+    "navigationBarBackgroundColor": "#0d0d0d",
+    "navigationBarTitleText": "健身追踪",
+    "navigationBarTextStyle": "white",
+    "backgroundColor": "#0d0d0d"
+  },
+  "tabBar": {
+    "color": "#777777",
+    "selectedColor": "#4ade80",
+    "backgroundColor": "#181818",
+    "borderStyle": "black",
+    "list": [
+      { "pagePath": "pages/index/index", "text": "首页" },
+      { "pagePath": "pages/plans/index", "text": "计划" },
+      { "pagePath": "pages/data/index", "text": "数据" }
+    ]
+  },
+  "sitemapLocation": "sitemap.json"
+}

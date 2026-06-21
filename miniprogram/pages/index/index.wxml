@@ -1,0 +1,32 @@
+<view class="home">
+  <view class="offline-bar" wx:if="{{offline}}">
+    <text class="offline-text">离线模式 · 数据仅保存在本地</text>
+  </view>
+  <view class="hero">
+    <text class="greeting">Hi, {{nickname}}</text>
+    <text class="subtitle">{{greetingText}}</text>
+  </view>
+  <view class="status-card {{todayStatus.trained?'':'untrained'}}">
+    <view class="status-left">
+      <text class="status-icon">{{todayStatus.trained?'✅':'📋'}}</text>
+      <view>
+        <text class="status-title">今日{{todayStatus.trained?'已':'未'}}训练</text>
+        <text class="status-sub">{{todayStatus.count}}次 · {{todayStatus.calories}}千卡</text>
+      </view>
+    </view>
+    <view class="week-badge">本周 {{weekStatus.trainDays}}/7 天</view>
+  </view>
+  <button class="btn-primary-big start-btn" bindtap="startTraining">💪 开始训练</button>
+  <view class="plan-preview" wx:if="{{todayPlan}}">
+    <text class="section-title">📋 今日计划 · {{todayPlan.name}}</text>
+    <view class="plan-items">
+      <view class="plan-row" wx:for="{{todayPlan.details}}" wx:key="movement_id">
+        <text class="plan-order">{{index+1}}</text>
+        <view class="plan-info">
+          <text class="plan-move">{{item.movement_name}}</text>
+          <text class="plan-target">{{item.target_sets}}组 × {{item.target_reps_min}}-{{item.target_reps_max}}次</text>
+        </view>
+      </view>
+    </view>
+  </view>
+</view>

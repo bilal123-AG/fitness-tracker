@@ -1,0 +1,63 @@
+<view class="training">
+  <view class="train-header">
+    <text class="train-timer">{{elapsed}}</text>
+    <text class="train-session" wx:if="{{sessionId}}">训练中</text>
+  </view>
+  <view class="train-main" wx:if="{{currentMove}}">
+    <text class="move-name">{{currentMove.name}}</text>
+    <text class="group-progress">第 {{currentGroup}}/{{totalGroups}} 组</text>
+    <view class="input-cards">
+      <view class="input-card">
+        <text class="input-label">重量 (kg)</text>
+        <view class="input-stepper">
+          <button class="stepper-btn" bindtap="decWeight">-</button>
+          <input class="stepper-val" type="digit" value="{{weight}}" bindinput="onWeightInput" />
+          <button class="stepper-btn" bindtap="incWeight">+</button>
+        </view>
+        <view class="quick-weights">
+          <text class="qw-item {{weight==20?'active':''}}" bindtap="setWeight" data-w="20">20</text>
+          <text class="qw-item {{weight==40?'active':''}}" bindtap="setWeight" data-w="40">40</text>
+          <text class="qw-item {{weight==60?'active':''}}" bindtap="setWeight" data-w="60">60</text>
+          <text class="qw-item {{weight==80?'active':''}}" bindtap="setWeight" data-w="80">80</text>
+          <text class="qw-item {{weight==100?'active':''}}" bindtap="setWeight" data-w="100">100</text>
+        </view>
+      </view>
+      <view class="input-card">
+        <text class="input-label">次数</text>
+        <view class="input-stepper">
+          <button class="stepper-btn" bindtap="decReps">-</button>
+          <input class="stepper-val" type="number" value="{{reps}}" bindinput="onRepsInput" />
+          <button class="stepper-btn" bindtap="incReps">+</button>
+        </view>
+      </view>
+    </view>
+    <button class="btn-primary-big record-btn" bindtap="recordSet">记录这组</button>
+    <view class="rest-area" wx:if="{{resting}}">
+      <text class="rest-label">休息中</text>
+      <text class="rest-time">{{restTime}}s</text>
+      <view class="rest-actions">
+        <text class="rest-action" bindtap="skipRest">跳过</text>
+        <text class="rest-action" bindtap="addRest">+30s</text>
+      </view>
+    </view>
+  </view>
+  <view class="upcoming" wx:if="{{upcoming.length>0}}">
+    <text class="section-title">接下来的动作</text>
+    <view class="upcoming-list">
+      <view class="up-item {{item.done?'done':''}}" wx:for="{{upcoming}}" wx:key="idx">
+        <text class="up-num">{{item.done?'OK':index+1}}</text>
+        <text class="up-name">{{item.movement_name}}</text>
+      </view>
+    </view>
+  </view>
+  <view class="train-footer">
+    <button class="btn btn-outline" bindtap="showActions">更多</button>
+    <button class="btn btn-danger" bindtap="finishTraining">结束训练</button>
+  </view>
+</view>
+<view class="pr-overlay {{prShow?'show':''}}">
+  <text class="pr-icon">🏆</text>
+  <text class="pr-title">新个人记录！</text>
+  <text class="pr-detail">{{prDetail}}</text>
+  <button class="btn btn-primary" bindtap="closePR">太棒了！</button>
+</view>

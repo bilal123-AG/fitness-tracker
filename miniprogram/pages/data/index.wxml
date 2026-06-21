@@ -1,0 +1,40 @@
+<view class="data-page">
+  <view class="data-tabs">
+    <text class="dt-item {{tab==0?'active':''}}" bindtap="switchTab" data-tab="0">综合</text>
+    <text class="dt-item {{tab==1?'active':''}}" bindtap="switchTab" data-tab="1">体重</text>
+    <text class="dt-item {{tab==2?'active':''}}" bindtap="switchTab" data-tab="2">三大项</text>
+  </view>
+  <view wx:if="{{tab===0}}">
+    <view class="card">
+      <text class="section-title">📈 近30天概览</text>
+      <view class="stat-row">
+        <view class="stat-item"><text class="stat-num">{{stats.train_days}}</text><text class="stat-lbl">训练天数</text></view>
+        <view class="stat-item"><text class="stat-num">{{stats.total_vol}}kg</text><text class="stat-lbl">总容量</text></view>
+        <view class="stat-item"><text class="stat-num">{{stats.total_sessions}}</text><text class="stat-lbl">训练次数</text></view>
+      </view>
+    </view>
+    <view class="card" style="margin-top:20rpx">
+      <text class="section-title">🏆 今日状态</text>
+      <view class="status-big">
+        <text class="status-big-icon">{{todayData.trained?'✅':'⏳'}}</text>
+        <view>
+          <text class="status-big-text">今日{{todayData.trained?'已完成':'还未'}}训练</text>
+          <text class="status-big-sub">消耗 {{todayData.calories}} kcal · 本周 {{weekData.trainDays}}/7 天</text>
+        </view>
+      </view>
+    </view>
+  </view>
+  <view wx:if="{{tab===2}}">
+    <view class="card" wx:for="{{bigThree}}" wx:key="name">
+      <text class="section-title">{{item.label}} 1RM 估算趋势</text>
+      <view class="bar-chart" wx:if="{{item.data.length>0}}">
+        <view class="bar-col" wx:for="{{item.data}}" wx:key="date" wx:for-item="d">
+          <view class="bar-fill" style="height: {{d.percent}}rpx; background: #4ade80;"></view>
+          <text class="bar-val">{{d.estimated1RM}}kg</text>
+          <text class="bar-date">{{d.date}}</text>
+        </view>
+      </view>
+      <text class="no-data" wx:else>暂无数据</text>
+    </view>
+  </view>
+</view>

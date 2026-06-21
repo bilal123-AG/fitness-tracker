@@ -1,0 +1,12 @@
+.movements-page { padding: 32rpx; }
+.search-bar { margin-bottom: 20rpx; }
+.search-input { width: 100%; background: var(--surface); border: 2rpx solid var(--border); border-radius: 20rpx; padding: 20rpx 28rpx; color: var(--text); font-size: 28rpx; }
+.filter-row, .equip-row { display: flex; flex-wrap: wrap; gap: 12rpx; margin-bottom: 20rpx; }
+.filter-item { font-size: 24rpx; padding: 12rpx 22rpx; border-radius: 20rpx; background: var(--surface); color: var(--text-dim); border: 2rpx solid var(--border); }
+.filter-item.active { background: var(--accent); color: #000; border-color: var(--accent); }
+.move-list { display: flex; flex-direction: column; gap: 16rpx; }
+.move-item { display: flex; gap: 20rpx; align-items: center; background: var(--surface); border-radius: var(--radius); padding: 24rpx 28rpx; }
+.move-cat { font-size: 20rpx; color: var(--accent); background: rgba(74,222,128,0.12); padding: 6rpx 14rpx; border-radius: 10rpx; flex-shrink: 0; }
+.move-content { flex: 1; display: flex; flex-direction: column; gap: 4rpx; }
+.move-name { font-size: 28rpx; font-weight: 600; }
+.move-equip { font-size: 22rpx; color: var(--text-dim); }

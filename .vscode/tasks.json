@@ -1,0 +1,37 @@
+﻿{
+  "version": "2.0.0",
+  "tasks": [
+    {
+      "label": "启动 Fitness Server",
+      "type": "shell",
+      "command": "node index.js",
+      "options": { "cwd": "${workspaceFolder}/server" },
+      "group": { "kind": "build", "isDefault": false },
+      "problemMatcher": [],
+      "presentation": { "reveal": "always", "panel": "dedicated" }
+    },
+    {
+      "label": "启动 PWA Server",
+      "type": "shell",
+      "command": "node server.js",
+      "options": { "cwd": "${workspaceFolder}/pwa" },
+      "group": { "kind": "build", "isDefault": false },
+      "problemMatcher": [],
+      "presentation": { "reveal": "always", "panel": "dedicated" }
+    },
+    {
+      "label": "安装依赖 (server)",
+      "type": "shell",
+      "command": "npm install",
+      "options": { "cwd": "${workspaceFolder}/server" },
+      "problemMatcher": [],
+      "presentation": { "reveal": "always" }
+    },
+    {
+      "label": "同时启动全部",
+      "dependsOn": ["启动 Fitness Server", "启动 PWA Server"],
+      "dependsOrder": "parallel",
+      "problemMatcher": []
+    }
+  ]
+}

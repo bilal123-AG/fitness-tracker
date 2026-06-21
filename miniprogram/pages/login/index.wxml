@@ -1,0 +1,25 @@
+<view class="login-page">
+  <view class="login-hero">
+    <text class="login-icon">🏋</text>
+    <text class="login-title">健身追踪</text>
+    <text class="login-sub">你的专属训练伙伴</text>
+  </view>
+
+  <view class="login-form">
+    <view class="lf-field">
+      <text class="lf-label">昵称</text>
+      <input class="lf-input" placeholder="请输入你的昵称" value="{{nickname}}" bindinput="onNickname" />
+    </view>
+
+    <button class="btn-primary-big login-btn" bindtap="handleLogin" loading="{{loading}}">
+      <text wx:if="{{!loading}}">微信一键登录</text>
+      <text wx:else>登录中...</text>
+    </button>
+
+    <button class="btn-outline skip-btn" bindtap="skipLogin">跳过，直接开始</button>
+  </view>
+
+  <view class="login-footer">
+    <text class="lf-tos">登录即表示同意用户协议</text>
+  </view>
+</view>

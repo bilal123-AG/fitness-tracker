@@ -1,0 +1,31 @@
+<view class="plans-page">
+  <text class="section-title">📋 训练计划</text>
+  <view class="plan-list" wx:if="{{plans.length>0}}">
+    <view class="plan-card" wx:for="{{plans}}" wx:key="id">
+      <view class="plan-card-header">
+        <text class="plan-card-name">{{item.name}}</text>
+        <text class="plan-card-day">周{{item.week_day}}</text>
+      </view>
+      <view class="plan-moves">
+        <view class="pm-item" wx:for="{{item.details}}" wx:for-item="d" wx:key="movement_id">
+          <text class="pm-order">{{index+1}}</text>
+          <text class="pm-name">{{d.movement_name}}</text>
+          <text class="pm-info">{{d.target_sets}}组 × {{d.target_reps_min}}-{{d.target_reps_max}}次</text>
+        </view>
+      </view>
+      <view class="plan-actions">
+        <text class="pa-btn" bindtap="startPlanTraining" data-id="{{item.id}}">▶ 开始训练</text>
+      </view>
+    </view>
+  </view>
+  <view class="empty-state" wx:else><text>还没有自定义计划</text></view>
+  <text class="section-title" style="margin-top:40rpx">➕ 智能建议</text>
+  <view class="quick-cats">
+    <text class="qc-item" bindtap="suggestPlan" data-cat="Chest">周一 练胸</text>
+    <text class="qc-item" bindtap="suggestPlan" data-cat="Back">练背日</text>
+    <text class="qc-item" bindtap="suggestPlan" data-cat="Legs">练腿日</text>
+    <text class="qc-item" bindtap="suggestPlan" data-cat="Shoulders">练肩日</text>
+    <text class="qc-item" bindtap="suggestPlan" data-cat="Arms">练手臂日</text>
+    <text class="qc-item" bindtap="suggestPlan" data-cat="Core">核心训练</text>
+  </view>
+</view>

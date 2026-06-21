@@ -1,0 +1,32 @@
+﻿{
+  "version": "0.2.0",
+  "configurations": [
+    {
+      "name": "启动 Fitness Server",
+      "type": "node",
+      "request": "launch",
+      "program": "${workspaceFolder}/server/index.js",
+      "cwd": "${workspaceFolder}/server",
+      "env": { "PORT": "3000" },
+      "console": "integratedTerminal",
+      "skipFiles": ["<node_internals>/**"]
+    },
+    {
+      "name": "启动 PWA Server",
+      "type": "node",
+      "request": "launch",
+      "program": "${workspaceFolder}/pwa/server.js",
+      "cwd": "${workspaceFolder}/pwa",
+      "console": "integratedTerminal",
+      "skipFiles": ["<node_internals>/**"]
+    },
+    {
+      "name": "Debug Server (attach)",
+      "type": "node",
+      "request": "attach",
+      "port": 9229,
+      "restart": true,
+      "skipFiles": ["<node_internals>/**"]
+    }
+  ]
+}

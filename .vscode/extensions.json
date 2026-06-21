@@ -1,0 +1,15 @@
+﻿{
+  "recommendations": [
+    "esbenp.prettier-vscode",
+    "dbaeumer.vscode-eslint",
+    "ritwickdey.liveserver",
+    "ms-vscode.vscode-typescript-next",
+    "formulahendry.auto-rename-tag",
+    "naumovs.color-highlight",
+    "christian-kohler.path-intellisense",
+    "dariofuzinato.mini-program",
+    "qiu8310.minapp-vscode",
+    "mrmlnc.vscode-puglint",
+    "eg2.vscode-npm-script"
+  ]
+}

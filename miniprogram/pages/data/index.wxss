@@ -1,0 +1,19 @@
+.data-page { padding: 40rpx 32rpx; padding-bottom: 120rpx; display: flex; flex-direction: column; gap: 20rpx; }
+.data-tabs { display: flex; gap: 20rpx; margin-bottom: 20rpx; }
+.dt-item { flex: 1; text-align: center; padding: 20rpx; border-radius: var(--radius); background: var(--surface); color: var(--text-dim); font-size: 28rpx; }
+.dt-item.active { background: var(--accent); color: #000; }
+.status-big { display: flex; align-items: center; gap: 20rpx; }
+.status-big-icon { font-size: 60rpx; }
+.status-big-text { font-size: 32rpx; font-weight: 700; display: block; }
+.status-big-sub { font-size: 24rpx; color: var(--text-dim); }
+.chart-area { padding: 20rpx 0; overflow-x: auto; }
+.bar-chart { display: flex; align-items: flex-end; gap: 12rpx; min-height: 200rpx; padding: 10rpx 0; }
+.bar-col { display: flex; flex-direction: column; align-items: center; gap: 6rpx; min-width: 60rpx; }
+.bar-fill { width: 40rpx; background: var(--accent); border-radius: 6rpx 6rpx 0 0; min-height: 4rpx; }
+.bar-val { font-size: 18rpx; color: var(--accent); }
+.bar-date { font-size: 16rpx; color: var(--text-dim); }
+.no-data { text-align: center; padding: 60rpx 0; color: var(--text-dim); font-size: 26rpx; }
+.stat-row { display: flex; gap: 20rpx; }
+.stat-item { flex: 1; background: var(--bg); border-radius: var(--radius); padding: 28rpx 16rpx; text-align: center; }
+.stat-num { font-size: 40rpx; font-weight: 700; display: block; }
+.stat-lbl { font-size: 22rpx; color: var(--text-dim); margin-top: 6rpx; }
